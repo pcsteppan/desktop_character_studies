@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Someone's Desktop</title>
+</head>
+<body id="interface">
+  <div id="desktop">
+  </div>
+  <div id="taskbar">
+    <div id="left_tray">
+      <div id="start_button"> 
+        <img src="icons/windows_icon.png"/>
+        <p id="p_start">Start</p>
+      </div>
+      <div id="pinned_applications">
+        <img src="icons/ie_icon.png"/>
+        <img src="icons/email_icon.png"/>
+      </div>
+    </div>
+    <div id="right_tray">
+      <div id="right_tray_icons">
+        <img src="icons/muted_icon.png"/>
+      </div>
+      <p id="p_time">
+        2:07 PM
+      </p>
+    </div>
+  </div>
+</body>
+<script>
+  // Get references to all DOM elements we'd like to change the contents of
+  const desktop = document.getElementById("desktop");
+  const pinned_applications = document.getElementById("pinned_applications");
+  const right_tray_icons = document.getElementById("right_tray_icons");
+
+  // Define model of typical desktop object, like a folder or shortcut
+  function make_desktop_icon(img_name, name){
+    let desktop_icon_base = document.createElement("div");
+    desktop_icon_base.className = "icon";
+    let desktop_icon_img = document.createElement("img");
+    desktop_icon_img.src = "icons/" + img_name + ".png";
+    let desktop_icon_p = document.createElement("p");
+    desktop_icon_p.innerText = name;
+    desktop_icon_p.className = "icon_name";
+    desktop_icon_base.appendChild(desktop_icon_img);
+    desktop_icon_base.appendChild(desktop_icon_p);
+    return desktop_icon_base;
+  }
+
+  
+  
+  main();
+  save();
+
+  function main() {
+    desktop.appendChild(make_desktop_icon("recycle_bin_empty_icon", "Recycle Bin"));
+    desktop.appendChild(make_desktop_icon("folder_icon", "games :~)"));
+    desktop.appendChild(make_desktop_icon("folder_icon", "other"));
+    desktop.appendChild(make_desktop_icon("music_cd_icon", "jams >:)"));
+  }
+
+  function save() {
+    var htmlContent = document.documentElement;
+    var bl = new Blob(htmlContent, {type: "text/html"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(bl);
+    a.download = "desktop.html";
+    a.hidden = true;
+    document.body.appendChild(a);
+    a.innerHTML = "";
+    a.click();
+  }
+</script>
+</html>

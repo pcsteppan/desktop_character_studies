@@ -1,0 +1,120 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#interface{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 94vh 6vh;
+}
+
+#desktop{
+  background-color: #008080;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 64px);
+  grid-template-rows: repeat(auto-fill, 64px);
+  grid-auto-flow: column;
+  gap: 16px;
+  padding: 2vh;
+}
+
+#taskbar{
+  position: relative;
+  background-color: #c0c0c0;
+  border-top: 1px #dfdfdf solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.icon{
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  flex-flow: column;
+}
+
+.icon>img{
+  align-self: center;
+}
+
+.icon_name{
+  color: white;
+  font-family: monospace;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+  line-break: strict;
+  margin-top: 2px;
+}
+
+#left_tray{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  padding: 1px;
+}
+
+#start_button{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  border-top: 1px #dfdfdf solid;
+  border-left: 1px #dfdfdf solid;
+  border-bottom: 1px #000 solid;
+  border-right: 1px #000 solid;
+}
+
+#start_button>img{
+  padding-left: 5px;
+}
+
+#pinned_applications{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#pinned_applications>img{
+  max-height: 90%;
+  padding-left: 10px;
+}
+
+#p_start{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0 4px;
+}
+
+#right_tray{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px #dfdfdf solid;
+  border-right: 1px #dfdfdf solid;
+  border-top: 1px #808080 solid;
+  border-left: 1px #808080 solid;
+  margin-right: 2px;
+  width: auto;
+  height: 100%;
+}
+
+#right_tray_icons, #right_tray_icons>img{
+  height: 100%;
+}
+
+#right_tray_icons{
+
+  padding: 2px;
+}
+
+#time_p{
+  margin-right: 2px;
+  font-size: 10px;
+}
